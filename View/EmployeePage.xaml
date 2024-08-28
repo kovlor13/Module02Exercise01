@@ -3,19 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Module02Exercise01.View.EmployeePage"
              Title="EmployeePage">
-    <VerticalStackLayout>
+    <VerticalStackLayout BackgroundColor="DarkGreen" Padding="10" >
 
-        <Label Text="{Binding fullname}" FontSize="20" />
-        <Button Text="Load Manager Data"
-                Command="{Binding LoadEmployeetDataCommand}"/>
-        <Label Text="FirstName, LastName, Position, Department, Is Active?"/>
-        <ListView ItemsSource="{Binding Employees}">
+        <Label Text="{Binding Fullname}" FontSize="20" TextColor="Yellow" />
+
+        <Button Text="Load Manager Data" 
+            Command="{Binding LoadEmployeetDataCommand}"
+            BackgroundColor="DarkBlue"
+            TextColor="Yellow"
+            CornerRadius="10" />
+
+        <Label Text="FirstName, LastName, Position, Department, Is Active?" 
+           TextColor="Yellow"/>
+
+        <ListView ItemsSource="{Binding Employees}"
+              BackgroundColor="DarkGreen">
 
             <ListView.ItemTemplate>
                 <DataTemplate>
-                  
-                    <TextCell Text="{Binding FullNames}"/>
-
+                    <ViewCell>
+                        <Frame BackgroundColor="DarkGreen" CornerRadius="10" Padding="5" Margin="5">
+                            <Label Text="{Binding FullNames}" TextColor="Yellow"/>
+                        </Frame>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
 
